@@ -1,7 +1,7 @@
 import React from 'react';
 import SkillBar from './SkillBar';
 import ExperienceCard from './ExperienceCard';
-import { GraduationCap, Heart, Code } from 'lucide-react';
+import { GraduationCap, Heart } from 'lucide-react';
 
 interface Skill {
   name: string;
