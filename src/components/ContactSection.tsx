@@ -283,7 +283,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isActive }) => {
                   </li>
                   <li className="flex items-center text-gray-600 dark:text-gray-300">
                     <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                    Consultation
+                    Collaborations 
                   </li>
                   <li className="flex items-center text-gray-600 dark:text-gray-300">
                     <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
@@ -300,7 +300,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isActive }) => {
             className="mt-12 text-center text-sm text-gray-500 dark:text-gray-400"
           >
             <p className="inline-flex items-center space-x-2">
-              <span>© {new Date().getFullYear()} Your Name</span>
+              <span>© {new Date().getFullYear()} Alfred Fianyo</span>
               <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
               <span>All rights reserved</span>
               <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
@@ -312,7 +312,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isActive }) => {
               </a>
             </p>
             <p className="mt-2">
-              Built with ❤️ using <strong>React</strong> & <strong>Tailwind</strong>
+              Built with ❤️ using <strong>React</strong>, <strong>TypeScript</strong> && <strong>Tailwind</strong>
             </p>
           </motion.div>
       </motion.div>
