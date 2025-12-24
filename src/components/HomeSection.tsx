@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Download, Github, Linkedin, Mail, Code, Zap, Sparkles } from 'lucide-react';
 import TextType from './TextType';
+import TextPressure from './TextPressure';
 
 interface HomeSectionProps {
   isActive: boolean;
@@ -46,29 +47,48 @@ const HomeSection: React.FC<HomeSectionProps> = ({ isActive }) => {
         </div>
         
         {/* Name with animated text reveal */}
-        <div className="overflow-hidden mb-4">
-          <h1 
-            className={`text-4xl md:text-7xl font-bold bg-gradient-to-r from-primary-400 via-accent-500 to-primary-500 text-transparent bg-clip-text animate-gradient transform ${
-              loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            } transition-all duration-1000`}
-          >
-            Alfred Fianyo
-          </h1>
+        <div 
+          className={`overflow-hidden mb-4 transform ${
+            loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          } transition-all duration-1000`}
+          style={{ height: '120px' }}
+        >
+          <TextPressure
+            text="Alfred Fianyo"
+            flex={true}
+            alpha={false}
+            stroke={false}
+            width={true}
+            weight={true}
+            italic={false}
+            textColor="transparent"
+            minFontSize={36}
+            className="bg-gradient-to-r from-primary-400 via-accent-500 to-primary-500 text-transparent bg-clip-text animate-gradient"
+          />
         </div>
         
         {/* Title with animated text reveal */}
         <div className="overflow-hidden mb-8">
-          <div className="flex items-center justify-center gap-2">
+          <div 
+            className={`flex items-center justify-center gap-2 ${
+              loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            } transition-all duration-1000 delay-200`}
+          >
             <Sparkles className={`w-5 h-5 text-accent-500 ${
               loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
             } transition-all duration-1000 delay-300`} />
-            <p 
-              className={`text-xl md:text-2xl text-gray-700 dark:text-gray-300 ${
-                loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-              } transition-all duration-1000 delay-200`}
-            >
-              Senior Software Engineer
-            </p>
+            <TextType
+              text={[
+                "Senior Software Engineer",
+                "Project Manager"
+              ]}
+              typingSpeed={80}
+              pauseDuration={2000}
+              showCursor={true}
+              cursorCharacter="|"
+              loop={true}
+              className="text-xl md:text-2xl text-gray-700 dark:text-gray-300"
+            />
             <Sparkles className={`w-5 h-5 text-accent-500 ${
               loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
             } transition-all duration-1000 delay-300`} />
