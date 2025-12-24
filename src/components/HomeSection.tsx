@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Download, Github, Linkedin, Mail, Code, Zap, Sparkles } from 'lucide-react';
+import TextType from './TextType';
 
 interface HomeSectionProps {
   isActive: boolean;
@@ -117,7 +118,19 @@ const HomeSection: React.FC<HomeSectionProps> = ({ isActive }) => {
             loaded ? 'opacity-100' : 'opacity-0'
           } transition-opacity duration-1000 delay-1000`}
         >
-          <p className="typewriter-text">Building innovative solutions with modern technologies</p>
+          <TextType 
+            text={[
+              "Building innovative solutions with modern technologies",
+              "Creating seamless user experiences",
+              "Transforming ideas into reality"
+            ]}
+            typingSpeed={75}
+            pauseDuration={1500}
+            showCursor={true}
+            cursorCharacter="|"
+            loop={true}
+            className="text-sm"
+          />
         </div>
       </div>
     </section>
