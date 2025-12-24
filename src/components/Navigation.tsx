@@ -9,6 +9,7 @@ import {
   FaBars 
 } from 'react-icons/fa6';
 import { motion, AnimatePresence } from 'framer-motion';
+import Dock from './Dock';
 
 const tabs = [
   { id: 'home', label: 'Home', icon: FaHouse },
@@ -49,49 +50,32 @@ export default function Navigation({
     setMobileMenuOpen(false);
   };
 
+  // Prepare dock items with current icons
+  const dockItems = tabs.map((tab) => {
+    const Icon = tab.icon;
+    const isActive = activeTab === tab.id;
+    
+    return {
+      icon: <Icon className={`w-5 h-5 ${isActive ? 'text-primary-400' : 'text-white'}`} />,
+      label: tab.label,
+      onClick: () => setActiveTab(tab.id),
+      className: isActive ? 'ring-2 ring-primary-400 ring-offset-2 ring-offset-black/30' : ''
+    };
+  });
+
   return (
     <>
-      {/* Desktop Navigation - Vertical Sidebar */}
-      <motion.nav 
-        className="hidden lg:flex flex-col fixed right-8 top-1/2 -translate-y-1/2 space-y-5 z-50"
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        {tabs.map((tab) => {
-          const Icon = tab.icon;
-          const isActive = activeTab === tab.id;
-          
-          return (
-            <motion.div
-              key={tab.id}
-              className="relative group"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <button
-                onClick={() => setActiveTab(tab.id)}
-                className={`p-4 rounded-full transition-all duration-300 shadow-md ${
-                  isActive
-                    ? 'bg-gradient-to-r from-primary-500 to-accent-500 text-white'
-                    : 'bg-white dark:bg-dark-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-700'
-                }`}
-                aria-label={tab.label}
-              >
-                <Icon className={`w-5 h-5 ${isActive ? 'animate-pulse' : ''}`} />
-              </button>
-              
-              {/* Label tooltip */}
-              <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                <div className="bg-white dark:bg-dark-800 text-gray-800 dark:text-white px-3 py-1 rounded-lg shadow-lg whitespace-nowrap text-sm font-medium">
-                  {tab.label}
-                </div>
-                <div className="absolute top-1/2 -translate-y-1/2 right-0 transform translate-x-1/2 rotate-45 w-2 h-2 bg-white dark:bg-dark-800"></div>
-              </div>
-            </motion.div>
-          );
-        })}
-      </motion.nav>
+      {/* Desktop Navigation - Dock on right side */}
+      <div className="hidden lg:flex fixed right-4 top-1/2 -translate-y-1/2 z-50">
+        <Dock 
+          items={dockItems}
+          panelHeight={68}
+          baseItemSize={50}
+          magnification={70}
+          distance={150}
+          orientation="vertical"
+        />
+      </div>
 
       {/* Tablet Navigation - Horizontal Top Bar */}
       <motion.nav 
