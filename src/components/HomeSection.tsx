@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Download, Github, Linkedin, Mail, Code, Zap, Sparkles } from 'lucide-react';
 import TextType from './TextType';
 import TextPressure from './TextPressure';
+import LiquidChrome from './LiquidChrome';
 
 interface HomeSectionProps {
   isActive: boolean;
@@ -18,18 +19,21 @@ const HomeSection: React.FC<HomeSectionProps> = ({ isActive }) => {
 
   return (
     <section 
-      className={`min-h-screen flex items-center justify-center p-8 transition-all duration-700 ${
+      className={`min-h-screen flex items-center justify-center p-8 transition-all duration-700 relative overflow-hidden ${
         isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-95 hidden'
       }`}
     >
+      {/* LiquidChrome background */}
+      <div className="absolute inset-0 z-0">
+        <LiquidChrome
+          baseColor={[0.04, 0.02, 0.08]}
+          speed={0.3}
+          amplitude={0.5}
+          interactive={true}
+        />
+      </div>
+
       <div className="relative z-10 text-center max-w-4xl">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 -z-10 overflow-hidden">
-          <div className="absolute -top-20 -left-20 w-64 h-64 bg-primary-400/10 rounded-full blur-3xl animate-pulse" 
-               style={{ animationDuration: '8s' }}></div>
-          <div className="absolute -bottom-40 -right-20 w-80 h-80 bg-accent-400/10 rounded-full blur-3xl animate-pulse"
-               style={{ animationDuration: '10s' }}></div>
-        </div>
         
         {/* Profile image with animated border */}
         <div className="relative w-48 h-48 md:w-48 md:h-52 mx-auto mb-10 group">
