@@ -3,6 +3,7 @@ import SkillBar from './SkillBar';
 import ExperienceCard from './ExperienceCard';
 import { GraduationCap, Heart } from 'lucide-react';
 import RotatingText from './RotatingText';
+import DecryptedText from './DecryptedText';
 
 interface Skill {
   name: string;
@@ -53,7 +54,15 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isActive, skills, experienc
           />
         </h2>
         <p className="text-lg mb-12 leading-relaxed text-gray-700 dark:text-gray-300">
-          Results-driven Software Engineer and Project Manager with 4 years of professional experience in full-stack development and project leadership. Expert in building scalable mobile applications (Flutter & React Native) and modern web applications. Proven ability to lead cross-functional teams, deliver high-quality products on time, and drive technical excellence. Seeking a software engineering role where I can contribute hands-on development and strategic leadership in a dynamic environment.
+          <DecryptedText
+            text="Results-driven Software Engineer and Project Manager with 4 years of professional experience in full-stack development and project leadership. Expert in building scalable mobile applications (Flutter & React Native) and modern web applications. Proven ability to lead cross-functional teams, deliver high-quality products on time, and drive technical excellence. Seeking a software engineering role where I can contribute hands-on development and strategic leadership in a dynamic environment."
+            animateOn="view"
+            speed={30}
+            maxIterations={15}
+            revealDirection="start"
+            className="text-gray-700 dark:text-gray-300"
+            encryptedClassName="text-primary-500/50"
+          />
         </p>
 
         {/* Skills Section */}
