@@ -168,11 +168,15 @@ const HomeSection: React.FC<HomeSectionProps> = ({ isActive }) => {
           } transition-all duration-1000 delay-900`}
         >
           <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-400 via-accent-500 to-primary-600 rounded-full opacity-70 group-hover:opacity-100 blur-sm group-hover:blur transition-all duration-300"></div>
-          <button className="relative bg-white dark:bg-dark-800 text-primary-500 dark:text-primary-400 font-medium px-10 py-4 rounded-full flex items-center gap-3 mx-auto hover:scale-105 transition-all duration-300 shadow-xl">
+          <a 
+            href="/Alfred__Fianyo's CV-2.pdf" 
+            download="Alfred_Fianyo_CV.pdf"
+            className="relative bg-white dark:bg-dark-800 text-primary-500 dark:text-primary-400 font-medium px-10 py-4 rounded-full flex items-center gap-3 mx-auto hover:scale-105 transition-all duration-300 shadow-xl w-max"
+          >
             <Download className="w-5 h-5" />
             <span>Download Resume</span>
             <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-500 to-accent-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
-          </button>
+          </a>
         </div>
         
         {/* Animated typing text */}
