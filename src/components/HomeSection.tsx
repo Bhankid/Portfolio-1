@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Download, Github, Linkedin, Mail, Code, Zap, Sparkles } from 'lucide-react';
+import { Download, Sparkles } from 'lucide-react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa6';
+import { IoMail } from 'react-icons/io5';
+import { SiHashnode, SiLinktree } from 'react-icons/si';
 import TextType from './TextType';
 import TextPressure from './TextPressure';
 import LiquidChrome from './LiquidChrome';
@@ -106,20 +109,52 @@ const HomeSection: React.FC<HomeSectionProps> = ({ isActive }) => {
         {/* Social links with staggered animation */}
         <div className="flex justify-center gap-6 mb-12">
           {[
-            { icon: <Github className="w-6 h-6" />, delay: 400, color: 'hover:text-gray-800 dark:hover:text-white', href: '#' },
-            { icon: <Linkedin className="w-6 h-6" />, delay: 500, color: 'hover:text-blue-600', href: '#' },
-            { icon: <Mail className="w-6 h-6" />, delay: 600, color: 'hover:text-red-500', href: '#' },
-            { icon: <Code className="w-6 h-6" />, delay: 700, color: 'hover:text-green-500', href: '#' },
-            { icon: <Zap className="w-6 h-6" />, delay: 800, color: 'hover:text-yellow-500', href: '#' }
+            { 
+              icon: <FaGithub className="w-6 h-6" />, 
+              delay: 400, 
+              color: 'hover:text-gray-800 dark:hover:text-white', 
+              href: 'https://github.com/Bhankid',
+              label: 'GitHub'
+            },
+            { 
+              icon: <FaLinkedin className="w-6 h-6" />, 
+              delay: 500, 
+              color: 'hover:text-[#0077b5]', 
+              href: 'https://www.linkedin.com/in/alfred-fianyo/',
+              label: 'LinkedIn'
+            },
+            { 
+              icon: <IoMail className="w-6 h-6" />, 
+              delay: 600, 
+              color: 'hover:text-[#ea4335]', 
+              href: 'mailto:alfredfianyo50@gmail.com',
+              label: 'Email'
+            },
+            { 
+              icon: <SiHashnode className="w-6 h-6" />, 
+              delay: 700, 
+              color: 'hover:text-[#2962ff]', 
+              href: 'https://hashnode.com/@AlfredFianyo',
+              label: 'Hashnode'
+            },
+            { 
+              icon: <SiLinktree className="w-6 h-6" />, 
+              delay: 800, 
+              color: 'hover:text-[#43e660]', 
+              href: 'https://linktr.ee/bhankid',
+              label: 'Linktree'
+            }
           ].map((item, index) => (
             <a 
               key={index}
               href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`p-4 rounded-full bg-gray-100/80 dark:bg-dark-800/80 backdrop-blur-sm ${item.color} transform hover:scale-110 hover:-translate-y-1 transition-all duration-300 shadow-md ${
                 loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${item.delay}ms` }}
-              aria-label={`Social link ${index + 1}`}
+              aria-label={item.label}
             >
               {item.icon}
             </a>
